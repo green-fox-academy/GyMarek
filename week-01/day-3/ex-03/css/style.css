@@ -1,0 +1,26 @@
+div {
+    border: 18px solid #4285F4;
+    width: 368px;
+    height: 300px;
+    margin: 5px;
+}
+
+p {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    Font-size: 36px;
+    padding: 10px;
+    width: 348px;
+    height: 130px;
+    margin: 0px;
+    text-align: center;
+    line-height: 128px;
+}
+
+div:nth-child(1) {
+    background-color: #E67676
+}
+
+div:nth-child(2) {
+    background-color: #A9E6E6
+}
