@@ -1,0 +1,11 @@
+div {
+    width: 455px;
+    height: 200px;
+    border: 0;
+    background: #127731;
+    margin: auto;
+}
+
+.border-box {
+    box-sizing: border-box;
+}
