@@ -1,0 +1,47 @@
+div.container {
+    width: 455px;
+    height: 570px;
+    background: #127731;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.box {
+    background: #FFE42E;
+    float: left;
+    margin-top: 10px;
+    padding: 1px;
+    position: relative;
+    background-position: center center;
+    border: 10px solid #FF1200;
+}
+
+.box div {
+    position: absolute;
+}
+
+.top {
+    width: 433px;
+    height: 12px;
+}
+
+.center {
+    width: 205px;
+    height: 300px;
+}
+
+.bottom {
+    width: 433px;
+    height: 115px;
+}
+
+
+/*
+green: w455 h570
+borders are Paddings:10
+fisrt: w435 h12
+second: 2* w210 h300
+third: w435 h115
+yellow: #FFE42E
+red: #FF1200
+*/
