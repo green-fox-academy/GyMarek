@@ -1,0 +1,55 @@
+div.container {
+    width: 455px;
+    height: 570px;
+    background: #127731;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.box {
+    background: #FFE42E;
+    float: left;
+    margin-top: 10px;
+    padding: 1px;
+    position: relative;
+    background-position: center center;
+    border: 10px solid #FF1200;
+}
+
+
+/*.box div {
+    position: absolute;
+}*/
+
+.top {
+    width: 433px;
+    height: 12px;
+}
+
+.center {
+    width: 205px;
+    height: 300px;
+}
+
+.bottom {
+    width: 433px;
+    height: 115px;
+}
+
+.route {
+    float: left;
+    margin-top: 30px;
+    border: 1px solid black
+}
+
+.twins {
+    width: 100px;
+    height: 32px;
+    margin-top: 105px;
+}
+
+.child {
+    width: 203px;
+    height: 112px;
+    margin-top: 15px;
+}
