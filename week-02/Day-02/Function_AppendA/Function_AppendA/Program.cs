@@ -1,15 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Function_AppendA
+namespace AppendA
 {
     class Program
     {
         static void Main(string[] args)
         {
+            string am = "kuty";
+
+            // - Create a string variable named `am` and assign the value `kuty` to it
+            // - Write a function called `appendA` that gets a string as an input
+            //   and appends an 'a' character to its end
+            // - Print the result of `appendA(am)`
+
+            Console.WriteLine(appendA(am));
+            Console.ReadLine();
         }
+
+        public static string appendA (string name)
+        {
+            return name = name + "a";
+        }
+
+
     }
 }
+
+
