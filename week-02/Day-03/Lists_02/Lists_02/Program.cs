@@ -17,10 +17,17 @@ namespace Lists_02
             // Join the two lists by matching one girl with one boy in the order list
             // Exepected output: "Eve", "Joe", "Ashley", "Fred"...
 
-            for (int i = 0; i < girls.Count; i++)
+            for (int i = 0; i < boys.Count; i++)
             {
-                order.Add(girls.ElementAt(i));
-                order.Add(boys.ElementAt(i));
+                if (girls.Count > i)
+                {
+                    order.Add(girls[i]);
+                }
+                if (boys.Count > i)
+                {
+                    order.Add(boys[i]);
+                }
+
             }
 
             foreach (string couple in order)
