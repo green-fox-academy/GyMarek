@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ex35_DrawChessTable", "ex35_DrawChessTable\ex35_DrawChessTable.csproj", "{B73EEBD4-E362-441E-BDA0-A467B0865E55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B73EEBD4-E362-441E-BDA0-A467B0865E55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B73EEBD4-E362-441E-BDA0-A467B0865E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B73EEBD4-E362-441E-BDA0-A467B0865E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B73EEBD4-E362-441E-BDA0-A467B0865E55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2EA81754-3B33-4A4F-BAA2-7F533A3DFD80}
+	EndGlobalSection
+EndGlobal
