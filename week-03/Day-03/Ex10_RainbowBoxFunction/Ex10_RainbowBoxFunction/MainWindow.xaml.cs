@@ -30,7 +30,8 @@ namespace Ex10_RainbowBoxFunction
 
             for (int size = 600; size >= 0; size -= 3)
             {
-                RectangleDraw(foxDraw, size, (Color.FromRgb(               
+                RectangleDraw(foxDraw, size, (Color.FromArgb(
+                    (byte)r.Next(256),
                     (byte)r.Next(256),
                     (byte)r.Next(256),
                     (byte)r.Next(256))));
