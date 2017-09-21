@@ -24,10 +24,10 @@ namespace Ex13_CheckerBoard
             var foxDraw = new FoxDraw(canvas);
             // fill the canvas with a checkerboard pattern.
      
-            int size = 50;
+            int size = 250;
             int pcs = 600 / size;
             Color firstColor = Colors.Red;
-            Color secondColor = Colors.DarkBlue;
+            Color secondColor = Colors.Yellow;
 
             for (int i = 0; i < pcs; i++)
             {

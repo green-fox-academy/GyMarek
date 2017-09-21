@@ -26,8 +26,8 @@ namespace Ex12_PurplesSteps3d
             // r4.png
 
             int position = 10;
-            int increase = 20;
-            int noOfBoxes = 6;
+            int increase = 2;
+            int noOfBoxes = 100;
             
             for (int size = 0; size <= noOfBoxes* increase; size+= increase)
             {

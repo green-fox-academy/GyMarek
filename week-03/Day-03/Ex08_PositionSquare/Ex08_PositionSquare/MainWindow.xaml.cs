@@ -27,8 +27,11 @@ namespace Ex08_PositionSquare
             // and draws a 50x50 square from that point.
             // draw 3 squares with that function.   
 
+            foxDraw.FillColor(Colors.Yellow);
             RectangleDraw(foxDraw, 50, 50);
+            foxDraw.FillColor(Colors.Green);
             RectangleDraw(foxDraw, 100, 100);
+            foxDraw.FillColor(Colors.Blue);
             RectangleDraw(foxDraw, 150, 150);
         }
         public void RectangleDraw(FoxDraw Line, int p1, int p2)
