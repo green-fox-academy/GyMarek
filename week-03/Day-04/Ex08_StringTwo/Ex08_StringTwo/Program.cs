@@ -4,16 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ex07_StringOne
+namespace Ex08_StringTwo
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Given a string, compute recursively (no loops) a new string where all the
-            // lowercase 'x' chars have been changed to 'y' chars.
+            // Given a string, compute recursively a new string where all the 'x' chars have been removed.
 
-            string input = "Xoxo";      
+            string input = "Xoxo";
             Console.WriteLine(XchangeY(input));
             Console.ReadLine();
         }
@@ -21,8 +20,8 @@ namespace Ex07_StringOne
         {
             if (input.Length < 1)
                 return input;
-            else if (input[0] == 'x')
-                return 'y' + XchangeY(input.Substring(1));
+            else if (input[0] == 'x' || input[0] == 'X')
+                return "" + XchangeY(input.Substring(1));
             else
                 return input[0] + XchangeY(input.Substring(1));
         }
