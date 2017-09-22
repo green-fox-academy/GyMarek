@@ -21,28 +21,31 @@ namespace Ex11_DrawingSquares
         public MainWindow()
         {
             InitializeComponent();
-            var foxDraw = new FoxDraw(canvas);          
-            
-            double size = canvas.Width/3;
-            
+            var foxDraw = new FoxDraw(canvas);
+
+            double size = canvas.Width;
+                        
             foxDraw.BackgroundColor(Colors.Yellow);
             foxDraw.StrokeColor(Colors.Black);
-            Drawing(foxDraw, 50, 50, size, 5);
+            Drawing(foxDraw, 0,0,size, 4);
         }
 
         public static void Drawing(FoxDraw foxDraw, double x, double y, double size, int depth)
         {
-            if (depth ==0)
+            if (depth == 0)
             {
                 return;
             }
-            foxDraw.DrawLine(size, 0, size, size * 3);
-            foxDraw.DrawLine(size * 2, 0, size * 2, size * 3);
-            foxDraw.DrawLine(0, size, size * 3, size);
-            foxDraw.DrawLine(0, size*2, size * 3, size*2);
+            foxDraw.DrawLine(x + size / 3, y, x + size / 3, y + size);
+            foxDraw.DrawLine(x + size / 3 * 2, y, x + size / 3 * 2, y + size);
+            foxDraw.DrawLine(x, y + size / 3, x + size, y + size / 3);
+            foxDraw.DrawLine(x, y + size / 3 * 2, x + size, y + size / 3 * 2);
 
-            Drawing(foxDraw, x+ (size / 3), y, size/3, depth-1);
-            
+            Drawing(foxDraw, x + size / 3, y, size / 3, depth - 1);
+            Drawing(foxDraw, x + size / 3, y + size / 3 * 2, size / 3, depth - 1);
+            Drawing(foxDraw, x, y + size / 3, size / 3, depth - 1);
+            Drawing(foxDraw, x + size / 3 * 2, y + size / 3, size / 3, depth - 1);
+        
         }
     }
 }
