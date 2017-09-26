@@ -26,12 +26,12 @@ namespace Ex01_Greenfox
             gender = "female";
         }
 
-        public void Introduce()
+        public virtual void Introduce()
         {
             Console.WriteLine("Hi, I'm {0}, a {1} year old {2}.", name, age, gender);
         }
 
-        public void GetGoal()
+        public virtual void GetGoal()
         {
             Console.WriteLine("My Goal is: Live for the moment!");
         }

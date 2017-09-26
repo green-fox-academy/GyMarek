@@ -10,22 +10,48 @@ namespace Ex01_Greenfox
     {
         static void Main(string[] args)
         {
-            Person Jane = new Person();
+            List<Person> people = new List<Person>();
 
-            Jane.Introduce();
-            Jane.GetGoal();
+            Person mark = new Person("Mark", 46, "male");
+            people.Add(mark);
+            Person jane = new Person();
+            people.Add(jane);
+            Student john = new Student("John Doe", 20, "male", "BME");
+            people.Add(john);
+            Student student = new Student();
+            people.Add(student);
+            Mentor gandhi = new Mentor("Gandhi", 148, "male", "senior");
+            people.Add(gandhi);
+            Mentor mentor = new Mentor();
+            people.Add(mentor);
+            Sponsor sponsor = new Sponsor();
+            people.Add(sponsor);
+            Sponsor elon = new Sponsor("Elon Musk", 46, "male", "SpaceX");
+            people.Add(elon);
 
-            Student Jane2 = new Student();
-            Jane2.Introduce();
-            Jane2.GetGoal();
+            student.Skipdays(3);
 
-            Mentor Jane3 = new Mentor();
-            Jane3.Introduce();
-            Jane3.GetGoal();
+            for (int i = 0; i < 5; i++)
+            {
+                elon.Hire();
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                sponsor.Hire();
+            }
 
-            Sponsor Jane4 = new Sponsor();
-            Jane4.Introduce();
-            Jane4.GetGoal();
+            foreach (Person person in people)
+            {
+                person.Introduce();
+                person.GetGoal();
+            }
+
+            PallidaClass alpaga = new PallidaClass("Alpaga", null, null);
+            alpaga.AddStudent(student);
+            alpaga.AddStudent(john);
+            alpaga.AddMentor(mentor);
+            alpaga.AddMentor(gandhi);
+            alpaga.Info();
 
             Console.ReadLine();
         }

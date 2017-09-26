@@ -28,12 +28,12 @@ namespace Ex01_Greenfox
             hiredStudents = 0;
         }
 
-        public new void GetGoal()
+        public override void GetGoal()
         {
-            Console.WriteLine("Hire brilliant junior software developers.");
+            Console.WriteLine("My Goal is: Hire brilliant junior software developers.");
         }
 
-        public new void Introduce()
+        public override void Introduce()
         {
             Console.WriteLine("Hi, I'm {0}, a {1} year old {2} who represent {3} and hired {4} students so far.", name, age, gender, company, hiredStudents);
         }
