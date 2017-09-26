@@ -35,7 +35,5 @@ namespace Ex01_Greenfox
         {
             Console.WriteLine("Hi, I'm {0}, a {1} year old {2} {3} mentor.", name, age, gender, level);
         }
-
-
     }
 }

@@ -23,6 +23,10 @@ namespace Ex01_Greenfox
             Jane3.Introduce();
             Jane3.GetGoal();
 
+            Sponsor Jane4 = new Sponsor();
+            Jane4.Introduce();
+            Jane4.GetGoal();
+
             Console.ReadLine();
         }
     }
