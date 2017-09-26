@@ -17,6 +17,11 @@ namespace Ex01_Greenfox
 
             Student Jane2 = new Student();
             Jane2.Introduce();
+            Jane2.GetGoal();
+
+            Mentor Jane3 = new Mentor();
+            Jane3.Introduce();
+            Jane3.GetGoal();
 
             Console.ReadLine();
         }
