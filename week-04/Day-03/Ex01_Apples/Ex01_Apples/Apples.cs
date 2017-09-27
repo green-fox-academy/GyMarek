@@ -10,7 +10,8 @@ namespace Ex01_Apples
     {
         public string GetApple()
         {
-            return "Apple";
+            string myObject = "apple";
+            return myObject;
         }
     }
 }
