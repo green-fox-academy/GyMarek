@@ -10,32 +10,23 @@ namespace Ex03_Anagram
     {
         public static bool IsAnagram(string first, string second)
         {
-        if (first != null && second != null)
-        {
+            bool IsAnagram = false;
+
+            first = first.Replace(" ", String.Empty).ToLower();
+            second = second.Replace(" ", String.Empty).ToLower();
+
             char[] firstChars = first.ToCharArray();
-            Array.Sort(firstChars);
+            Array.Sort(firstChars);            
             char[] secondChars = second.ToCharArray();
             Array.Sort(secondChars);
 
-            bool anagram = true;
-
-            if (firstChars.Length != secondChars.Length)
+            if (firstChars.Length == secondChars.Length &&
+                firstChars.SequenceEqual(secondChars))
             {
-                anagram = false;
+                IsAnagram = true;
+                return IsAnagram;
             }
-            else
-            {
-                for (int i = 0; i < firstChars.Length; i++)
-                {
-                    if (firstChars[i] != secondChars[i])
-                    {
-                        anagram = false;
-                    }
-                }
-            }
-            return anagram;
-        }
-        return false;       
+            return IsAnagram;
         }
     }
 }
