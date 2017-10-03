@@ -8,25 +8,49 @@ namespace Ex10_Sharpie_set
 {
     class Sharpie
     {
-        public string Color;
-        public float Width;
-        public float InkAmount = 100;
+        private string name;
+        private string color;
+        private float width;
+        private float inkAmount = 100;
+        private bool usable;
 
-        public Sharpie(string color, float width, float inkAmount)
+        public Sharpie(string color, float width, string name)
         {
-            this.Color = color;
-            this.Width = width;
-            this.InkAmount = inkAmount;
+            this.name = name;
+            this.color = color;
+            this.width = width;
         }
 
-        public float Use()
+        public float InkAmount
         {
-            return this.InkAmount--;
+            get
+            {
+                return inkAmount;
+            }
         }
 
-        public float GetInkAmount()
+        public void Use()
         {
-            return this.InkAmount;
+            inkAmount -= 100;
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+        }
+        public bool Usable
+        {
+            get
+            {
+                return usable;
+            }
+            set
+            {
+                usable = value;
+            }
         }
     }
 }
