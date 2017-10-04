@@ -8,50 +8,45 @@ namespace Ex11_Farm
 {
     class Animal
     {
-        private int hunger;
-        private int thirst;
-        private string breed;
+        public string NameOfAnimal;
+        public int Hunger = 50;
+        public int Thirst = 50;
 
-        public Animal(string breed = "pig", int hunger = 50, int thirst = 50)
+        public Animal(string NameOfAnimal, int Hunger, int Thirst)
         {
-            this.hunger = hunger;
-            this.thirst = thirst;
-            this.breed = breed;
+            this.NameOfAnimal = NameOfAnimal;
+            this.Hunger = Hunger;
+            this.Thirst = Thirst;
+        }
+
+        public Animal()
+        {
         }
 
         public void Eat()
         {
-            hunger--;
+            Hunger--;
         }
+
         public void Drink()
         {
-            thirst--;
+            Thirst--;
         }
+
         public void Play()
         {
-            thirst++;
-            hunger++;
+            Hunger++;
+            Thirst++;
         }
-        public int Hunger
+
+        public int GetHunger()
         {
-            get
-            {
-                return hunger;
-            }
+            return Hunger;
         }
-        public int Thirst
+
+        public int GetThirst()
         {
-            get
-            {
-                return thirst;
-            }
-        }
-        public string Breed
-        {
-            get
-            {
-                return breed;
-            }
+            return Thirst;
         }
     }
 }

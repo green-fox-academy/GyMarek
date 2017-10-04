@@ -10,23 +10,23 @@ namespace Ex11_Farm
     {
         static void Main(string[] args)
         {
-            Animal animal1 = new Animal("horse", 101, 25);
-            Animal animal2 = new Animal("sheep", 33, 50);
-            Animal animal3 = new Animal("chicken", 25, 42);
-            Animal animal4 = new Animal("cow", 44, 20);
+            Animal cat = new Animal("cat ", 40, 10);            
+            Animal dog = new Animal("dog ", 30, 20);
+            Animal cow = new Animal("cow", 20, 30);
+            Animal chicken = new Animal("chicken", 10, 40);
 
             Farm farm = new Farm();
-            farm.Slot = 5;
+            farm.slots = 5;
 
-            farm.AnimalList.Add(animal1);
-            farm.AnimalList.Add(animal2);
-            farm.AnimalList.Add(animal3);
-            farm.AnimalList.Add(animal4);
-            
+            farm.AnimalList.Add(cat);
+            farm.AnimalList.Add(dog);
+            farm.AnimalList.Add(cow);
+            farm.AnimalList.Add(chicken);
+
             farm.Breed(farm.AnimalList);
             farm.Slaughter(farm.AnimalList);
             farm.Print(farm.AnimalList);
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }

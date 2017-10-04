@@ -8,20 +8,14 @@ namespace Ex11_Farm
 {
     class Farm
     {
-        private int slots;
-        private List<Animal> animalList = new List<Animal>();
+        //it has list of Animals
+        //it has slots which defines the number of free places for animals
+        //breed() -> creates a new animal if there's place for it
+        //slaughter() -> removes the least hungry animal
 
-        public int Slot
-        {
-            get
-            {
-                return slots;
-            }
-            set
-            {
-                slots = value;
-            }
-        }
+        public int slots { get; internal set; }
+        public string breed { get; set; }
+        public List<Animal> animalList = new List<Animal>();
 
         public List<Animal> AnimalList
         {
@@ -33,7 +27,7 @@ namespace Ex11_Farm
             {
                 animalList = value;
             }
-        }
+        }       
 
         public List<Animal> Breed(List<Animal> animalList)
         {
@@ -49,7 +43,6 @@ namespace Ex11_Farm
         {
             int hunger = 100;
             int lessHungryIndex = 0;
-
             for (int i = 0; i < animalList.Count; i++)
             {
                 if (animalList[i].Hunger < hunger)
@@ -66,7 +59,7 @@ namespace Ex11_Farm
         {
             foreach (var animal in animalList)
             {
-                Console.WriteLine("The animal type is: " + animal.Breed + " , thirst value: " + animal.Thirst + ", hunger value: " + animal.Hunger);
+                Console.WriteLine("The animal type is: " + animal.NameOfAnimal + " , thirst value: " + animal.Thirst + ", hunger value: " + animal.Hunger);
             }
         }
     }
