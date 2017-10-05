@@ -8,15 +8,17 @@ namespace Ex02_Garden
 {
     public class Plant
     {
-        protected string color;
-        protected double currentWaterAmount;
-        protected double wateringTreshold;
-        protected string type;
+        public string color;
+        public double currentWaterAmount;
+        public double wateringTreshold;
+        public double waterPull;
+        public string type;
 
-        public string Color { get; set; }
-        public double CurrentWaterAmount { get; set; }
-        public double WateringTreshold { get; }
-        public string Type { get; }
+        //public string Color { get; set; }
+        //public double CurrentWaterAmount { get; set; }
+        //public double WaterPull { get; set; }
+        //public double WateringTreshold { get; }
+        //public string Type { get; }
 
         public virtual void Water(double waterAmount)
         {
