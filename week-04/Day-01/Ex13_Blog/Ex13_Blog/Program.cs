@@ -18,12 +18,12 @@ namespace Ex13_Blog
             BlogPost blogspot2 = new BlogPost(
                 "Tim Urban",
                 "Wait but why",
-                "A popular long-form, stick-figure-illustrated blog about almost everything.",
+                "A popular long-form, stick-figure-illustrated blog about ...",
                 "2010.10.10.");
             BlogPost blogspot3 = new BlogPost(
                 "William Turton",
                 "One Engineer Is Trying to Get IBM to Reckon With Trump",
-                "Daniel Hanley, a cybersecurity engineer at IBM, doesn’t want to be the center of attention. When I asked to take his picture outside one of IBM’s New York City offices, he told me that he wasn’t really into the whole organizer profile thing.",
+                "Daniel Hanley, a cybersecurity engineer at IBM...",
                 "2017.03.28.");
 
             Blog blogs = new Blog();
@@ -32,8 +32,8 @@ namespace Ex13_Blog
             blogs.Add(blogspot2);
             blogs.Add(blogspot3);
 
-            blogs.Delete(2);
-            blogs.Update(1, blogspot2);
+            blogs.Delete(0);
+            blogs.Update(0, blogspot2);
             blogs.Print();
             Console.ReadLine();
         }
