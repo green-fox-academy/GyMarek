@@ -13,8 +13,7 @@ namespace Ex11_Farm
         //breed() -> creates a new animal if there's place for it
         //slaughter() -> removes the least hungry animal
 
-        public int slots { get; internal set; }
-        public string breed { get; set; }
+        public int slot;    
         public List<Animal> animalList = new List<Animal>();
 
         public List<Animal> AnimalList
@@ -27,11 +26,23 @@ namespace Ex11_Farm
             {
                 animalList = value;
             }
-        }       
+        }
+
+        public int Slot
+        {
+            get
+            {
+                return slot;
+            }
+            set
+            {
+                slot = value;
+            }
+        }
 
         public List<Animal> Breed(List<Animal> animalList)
         {
-            if (slots > animalList.Count)
+            if (slot > animalList.Count)
             {
                 Animal newAnimal = new Animal();
                 animalList.Add(newAnimal);

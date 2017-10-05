@@ -16,7 +16,7 @@ namespace Ex11_Farm
             Animal chicken = new Animal("chicken", 10, 40);
 
             Farm farm = new Farm();
-            farm.slots = 5;
+            farm.Slot = 4;
 
             farm.AnimalList.Add(cat);
             farm.AnimalList.Add(dog);
