@@ -16,10 +16,35 @@ namespace ParkingLot
 
             for (int i = 0; i < carNumber; i++)
             {
-                cars.Add(new Car(((Car.CarColor)random.Next(typeof(Car.CarColor).GetEnumNames().Length)),
-                ((Car.CarType)random.Next(typeof(Car.CarType).GetEnumNames().Length))));
+                cars.Add(new Car((Car.CarColor)random.Next(1, 10), (Car.CarType)random.Next(1, 10)));
             }
-                        
+
+            var sameType = from carType in cars
+                           group carType by carType.type into selectType
+                           select new
+                           {
+                               selectType.Key,
+                               Count = (from carType in selectType select carType).Count()
+                           };
+
+            foreach (var itemType in sameType)
+            {
+                Console.WriteLine(itemType);
+            }
+
+            var sameColor = from carColor in cars
+                           group carColor by carColor.color into selectColor
+                           select new
+                           {
+                               selectColor.Key,
+                               Count = (from carType in selectColor select carType).Count()
+                           };
+
+            foreach (var itemColor in sameColor)
+            {
+                Console.WriteLine(itemColor);
+            }
+
             Console.ReadKey();
         }
     }
