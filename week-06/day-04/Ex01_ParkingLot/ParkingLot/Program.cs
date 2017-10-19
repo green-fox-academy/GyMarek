@@ -70,6 +70,27 @@ namespace ParkingLot
                 Console.WriteLine(itemColorLambda);
             }
 
+            Console.WriteLine();
+
+            //Query Most Frequently
+            var mostFrequently = (from carMost in cars
+                                  group carMost by new { carMost.type, carMost.color } into selectMost
+                                  orderby selectMost.Count() descending
+                                  select new
+                                  {
+                                      selectMost.Key,
+                                      Count = (from carType in selectMost select carType).Count()
+                                  }).First();
+
+            Console.WriteLine(mostFrequently);
+
+            Console.WriteLine();
+
+            //Method Most Frequently
+            var mostFrequentlyLambda = (cars.GroupBy(car => new { car.type, car.color }).OrderByDescending(car => car.Count()).ToDictionary(car => car.Key, car => car.Count())).First();
+
+            Console.WriteLine(mostFrequentlyLambda);
+            
             Console.ReadKey();
         }
     }
