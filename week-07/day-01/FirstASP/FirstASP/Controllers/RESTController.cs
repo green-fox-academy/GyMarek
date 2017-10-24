@@ -12,12 +12,14 @@ namespace FirstASP.Controllers
     [Route("api")]
     public class RESTController : Controller
     {
+        static int counter = 0;
+
         [Route("greeting")]
-        public IActionResult Greeting()
+        public IActionResult Greeting(string name)
         {
             Greeting greeting = new Greeting();
-            greeting.Id = 1;
-            greeting.Content = "Hello World!";
+            greeting.Id = ++counter;
+            greeting.Content = $"Hello {name}!"; ;
             return new JsonResult(greeting);
         }
     }
