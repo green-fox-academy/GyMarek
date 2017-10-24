@@ -7,7 +7,7 @@ namespace FirstASP.Models
 {
     public class Greeting
     {
-        long Id;
-        string Content;
+        public long Id { get; set; }
+        public string Content { get; set; }
     }
 }
