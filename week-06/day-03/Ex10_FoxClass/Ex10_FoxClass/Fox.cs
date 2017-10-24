@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ex10_FoxClass
 {
-    class Fox
+    public class Fox
     {
         public string name;
         public string type;
@@ -22,6 +23,6 @@ namespace Ex10_FoxClass
         public override string ToString()
         {
             return $"{name},{type},{color}";
-        }
+        }        
     }
 }

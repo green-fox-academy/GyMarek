@@ -34,6 +34,8 @@ namespace Ex10_FoxClass
             {
                 Console.WriteLine(green2.ToString());
             }
+            
+           
 
             var greenPallidaQ = from fox in listOfFoxes
                                where fox.color == "green" && fox.type == "Pallida"
@@ -44,14 +46,60 @@ namespace Ex10_FoxClass
                 Console.WriteLine(greenP.ToString());
             }
 
-            var greenPallidaL = listOfFoxes.Where(x => x.color == "green" && x.type == "Pallida").Select(x => x);
+            var greenPallidaL = listOfFoxes 
+                                .Where(x => x.color == "green" && x.type == "Pallida")
+                                .Select(x => x);
 
             foreach (var greenP2 in greenPallidaL)
             {
                 Console.WriteLine(greenP2.ToString());
             }
 
+            var selectedStudent = new List<Fox>();
+
+            foreach (var fox in listOfFoxes)
+            {
+                if (fox.color == "green" && fox.type == "Pallida")
+                {
+                    selectedStudent.Add(fox);
+                }
+            }
+
+            foreach (var item in selectedStudent)
+            {
+                Console.WriteLine(item);
+            }
+
+
             Console.ReadKey();
         }
+
+        //public void GetGreenPallida()
+        //{
+        //    var listOfFoxes = new List<Fox>
+        //        {
+        //            new Fox ("Torpapa", "Pallida", "green"),
+        //            new Fox ("Hami", "Alpaga", "red"),
+        //            new Fox ("Torpilla", "Static", "blue"),
+        //            new Fox ("UgyiFogyi", "Rabbit", "yellow"),
+        //            new Fox ("Torperos", "Oracle", "black"),
+        //        };
+
+        //    var selectedStudent = new List<Fox>();
+
+        //    foreach (var fox in listOfFoxes)
+        //    {
+        //        if (fox.color == "green" && fox.type == "Pallida")
+        //        {
+        //            selectedStudent.Add(fox);
+        //        }
+        //    }
+
+        //    foreach (var item in selectedStudent)
+        //    {
+        //        Console.WriteLine(item);
+        //    }
+
+        //}
     }
 }

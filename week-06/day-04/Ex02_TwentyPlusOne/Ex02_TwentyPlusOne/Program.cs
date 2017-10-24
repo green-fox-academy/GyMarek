@@ -10,6 +10,16 @@ namespace Ex02_TwentyPlusOne
     {
         static void Main(string[] args)
         {
+           
+
+            var test = Enum.GetValues(typeof(Rank));
+
+            foreach (var item in test)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.ReadKey();
         }
     }
 }
