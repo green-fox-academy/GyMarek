@@ -19,7 +19,7 @@ namespace FirstASP.Controllers
         {
             Greeting greeting = new Greeting();
             greeting.Id = ++counter;
-            greeting.Content = $"Hello {name}!"; ;
+            greeting.Content = $"Hello {name}!"; 
             return new JsonResult(greeting);
         }
     }

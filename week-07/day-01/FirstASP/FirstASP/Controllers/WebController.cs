@@ -12,13 +12,15 @@ namespace FirstASP.Controllers
     [Route("web")]
     public class WebController : Controller
     {
+        static int loadedPage = 0;
+
         [Route("greeting")]
-        public IActionResult Greeting()
+        public IActionResult Greeting(string name)
         {
             var greeting = new Greeting()
             {
-                Id = 1,
-                Content = "World"
+                Id = ++ loadedPage,
+                Content = $"{name}"
             };
 
             return View(greeting);
