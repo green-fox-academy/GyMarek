@@ -1,0 +1,20 @@
+﻿@model BankOfSimba.Models.BankAccountList
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>Client List</h1>
+    <table>
+        @foreach (var bankAccount in Model.Accounts)
+            {
+            <tr>
+                <td>@bankAccount.Name  </td>
+                <td>@bankAccount.Balance.ToString("0.00 Zebra")  </td>
+                <td>@bankAccount.AnimalType  </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

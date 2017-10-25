@@ -5,12 +5,8 @@ using System.Threading.Tasks;
 
 namespace BankOfSimba.Models
 {
-    public enum AnimalType
+    public class BankAccountList
     {
-        Lion,
-        Meerktas,
-        Boar,
-        Baboon,
-        Hornbill
+        public List<BankAccount> Accounts { get; set; } = new List<BankAccount>();
     }
 }
