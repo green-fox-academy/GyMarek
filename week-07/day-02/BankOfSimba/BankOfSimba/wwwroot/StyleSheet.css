@@ -1,3 +1,17 @@
 ﻿body {
-    
+    font-family: consolas;
+    background-color: black;
+}
+
+h1 {
+    color: white;
+}
+
+table {
+    background-color: #b6ff00;
+    table-layout: fixed;
+    color: darkgreen;
+    border: 1px solid red;
+    box-sizing: border-box;
+    border-collapse: collapse;
 }

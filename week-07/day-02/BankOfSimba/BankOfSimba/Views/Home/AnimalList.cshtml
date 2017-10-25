@@ -3,14 +3,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>ClientList</title>
-    <link rel="stylesheet" type="text/css" href="StyleSheet.css" />
+
+        <link rel="stylesheet" type="text/css" href="./StyleSheet.css") />
+ 
 </head>
 <body>
     <h1>Client List</h1>
     <table>
+        <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Balance</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Goodness</th>
+        </tr>
         @{ var index = 0;}
         @foreach (var bankAccount in Model.Accounts)
-         {
+            {
             <tr style="@((@bankAccount.IsKing) ? "color:gold" : "color:black") ">
                 <td>@(++index)</td>
                 <td>@bankAccount.Name</td>
@@ -19,7 +29,7 @@
                 <td>@((@bankAccount.IsKing) ? "King" : "" )</td>
                 <td>@((@bankAccount.IsGood) ? "Good One" : "Bad Guy" )</td>
             </tr>
-         }
+        }
     </table>
 </body>
 </html>

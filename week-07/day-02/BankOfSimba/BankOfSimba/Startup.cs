@@ -26,6 +26,8 @@ namespace BankOfSimba
 
             app.UseMvcWithDefaultRoute();
 
+            app.UseStaticFiles();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
