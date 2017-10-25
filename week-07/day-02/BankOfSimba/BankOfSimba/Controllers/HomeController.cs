@@ -33,31 +33,40 @@ namespace BankOfSimba.Controllers
                 Name = "Simba",
                 Balance = 2000,
                 AnimalType = AnimalType.Lion,
-                King = true
+                IsKing = true,
+                IsGood = true
             });
             bankAccounts.Accounts.Add(new BankAccount()
             {
                 Name = "Timon",
                 Balance = 1000,
-                AnimalType = AnimalType.Meerktas
+                AnimalType = AnimalType.Meerktas,
+                IsKing = false,
+                IsGood = false            
             });
             bankAccounts.Accounts.Add(new BankAccount()
             {
                 Name = "Pumbaa",
                 Balance = 5000,
-                AnimalType = AnimalType.Boar
+                AnimalType = AnimalType.Boar,
+                IsKing = false,
+                IsGood = false
             });
             bankAccounts.Accounts.Add(new BankAccount()
             {
                 Name = "Rafiki",
                 Balance = 4000,
-                AnimalType = AnimalType.Baboon
+                AnimalType = AnimalType.Baboon,
+                IsKing = false,
+                IsGood = true
             });
             bankAccounts.Accounts.Add(new BankAccount()
             {
                 Name = "Zazu",
                 Balance = 3000,
-                AnimalType = AnimalType.Hornbill
+                AnimalType = AnimalType.Hornbill,
+                IsKing = false,
+                IsGood = true
             });
 
             return View(bankAccounts);

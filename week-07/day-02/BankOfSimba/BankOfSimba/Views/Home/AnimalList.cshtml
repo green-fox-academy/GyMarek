@@ -10,15 +10,26 @@
     <table>
         @{ var index = 0;}
         @foreach (var bankAccount in Model.Accounts)
-            {
-            <tr style="@((@bankAccount.King) ? "color:red" : "color:black") ">
+         {
+            <tr style="@((@bankAccount.IsKing) ? "color:yellow" : "color:black") ">
                 <td>@(++index)</td>
                 <td>@bankAccount.Name</td>
                 <td>@bankAccount.Balance.ToString("0.00 Zebra")</td>
                 <td>@bankAccount.AnimalType</td>
-                <td>@((@bankAccount.King) ? "King" : "" )</td>
+                <td>@((@bankAccount.IsKing) ? "King" : "" )</td>
+                @{
+                    switch (bankAccount.IsGood)
+                    {
+                        case true:
+                            <td> Good One </td>
+                            break;
+                        default:
+                            <td> Bad Guy </td>
+                            break;
+                    }
+                }
             </tr>
-        }
+         }
     </table>
 </body>
 </html>
