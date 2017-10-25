@@ -2,7 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>ClientList</title>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css" />
 </head>
 <body>
     <h1>Client List</h1>
@@ -10,11 +11,12 @@
         @{ var index = 0;}
         @foreach (var bankAccount in Model.Accounts)
             {
-            <tr>
+            <tr style="@((@bankAccount.King) ? "color:red" : "color:black") ">
                 <td>@(++index)</td>
-                <td>@bankAccount.Name  </td>
-                <td>@bankAccount.Balance.ToString("0.00 Zebra")  </td>
-                <td>@bankAccount.AnimalType  </td>
+                <td>@bankAccount.Name</td>
+                <td>@bankAccount.Balance.ToString("0.00 Zebra")</td>
+                <td>@bankAccount.AnimalType</td>
+                <td>@((@bankAccount.King) ? "King" : "" )</td>
             </tr>
         }
     </table>

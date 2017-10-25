@@ -32,7 +32,8 @@ namespace BankOfSimba.Controllers
             {
                 Name = "Simba",
                 Balance = 2000,
-                AnimalType = AnimalType.Lion
+                AnimalType = AnimalType.Lion,
+                King = true
             });
             bankAccounts.Accounts.Add(new BankAccount()
             {
