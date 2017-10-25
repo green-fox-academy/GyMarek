@@ -12,13 +12,13 @@ namespace BankOfSimba.Controllers
     public class HomeController : Controller
     {
         // GET: /<controller>/
-        [Route("Simba")]
+        [Route("simba")]
         public IActionResult Index()
         {
             var BankAccount = new BankAccount()
             {
                 Name = "Simba",
-                Balance = 2000,
+                Balance = 2000.00,
                 AnimalType = AnimalType.Lion
             };
             return View(BankAccount);
