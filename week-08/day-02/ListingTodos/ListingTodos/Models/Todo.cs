@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace ListingTodos.Models
 {
-    public class Todocs
+    public class Todo
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public bool IsUrgent = false;
-        public bool IsDone = false;
+        public bool IsUrgent { get; set; } = false;
+        public bool IsDone { get; set; } = false;
     }
 }

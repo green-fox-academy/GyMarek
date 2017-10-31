@@ -8,10 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ListingTodos.Controllers
 {
-    public class HomeController : Controller
+    [Route("")]
+    public class TodoController : Controller
     {
-        // GET: /<controller>/
-        public IActionResult Index()
+        [Route("/list")]
+        public IActionResult List()
         {
             return View();
         }
