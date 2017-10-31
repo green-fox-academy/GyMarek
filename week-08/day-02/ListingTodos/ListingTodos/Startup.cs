@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using ListingTodos.Repositories;
+using ListingTodos.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ListingTodos
 {
@@ -14,7 +17,10 @@ namespace ListingTodos
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;";
             services.AddMvc();
+            services.AddScoped<TodoRepository>();
+            services.AddDbContext<TodoContext>(options => options.UseSqlServer(connectionString));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

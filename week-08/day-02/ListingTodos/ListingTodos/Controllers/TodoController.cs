@@ -12,10 +12,29 @@ namespace ListingTodos.Controllers
     {
         TodoRepository TodoRepository;
 
+        public TodoController(TodoRepository todoRepository)
+        {
+            TodoRepository = todoRepository;
+        }
+
         [Route("/list")]
         public IActionResult List()
         {
-            return View();
+            return View(TodoRepository.GetList());
+        }
+
+        [Route("/add")]
+        public IActionResult Add()
+        {
+            TodoRepository.AddTodo();
+            return RedirectToAction("List");
+        }
+
+        [Route("/clear")]
+        public IActionResult Clear()
+        {
+            TodoRepository.ClearDatabase();
+            return RedirectToAction("List");
         }
     }
 }
