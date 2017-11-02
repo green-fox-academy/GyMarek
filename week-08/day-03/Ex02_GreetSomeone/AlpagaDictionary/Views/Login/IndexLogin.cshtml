@@ -1,0 +1,30 @@
+﻿@model AlpagaDictionary.Models.User
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="~/IndexLoginStyleSheet.css" />
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <h4>This is Alpaga-Dictionary. Please login to continue, with your GitHub username!</h4>
+    <form method="post" action="/user">
+        <div>
+            <label for="userName">User name: </label>
+            <input type="text" id="userName"name="LoginName" />
+            <br />
+            <label for="userPassword">Password: </label>
+            <input type="text" name="Password" />
+        </div>
+        <br />
+        <div>
+            <button type="submit" value="IndexLogin">Login</button>
+        </div>
+        <br />
+        <div>
+            <img src="~/Images/AlpagaClass.jpg" alt="Alpaga">
+        </div>
+
+    </form>
+</body>
+</html>

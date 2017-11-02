@@ -1,0 +1,17 @@
+﻿body {
+    font-family: consolas;
+    background: #ffffff url("./Images/GFlogo.jpg") no-repeat right top;
+    max-width: 1180px;
+    width: 98%;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.mydefinitionname {
+    width: 300px;
+}
+
+.mydefinitiondescription {
+    width: 300px;
+    height: 300px;
+}

@@ -1,0 +1,25 @@
+﻿@model AlpagaDictionary.Models.UserAndDefinition
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./IndexWithFormStyleSheet.css" ) />
+</head>
+<body>
+    <h1>Alpaga-Dictionary</h1><br>
+    <form method="post" action="addNew">
+        <div>
+            New Definition Name: <br>
+            <input type="text" name="DefinitionName" value="" class="mydefinitionname" /> <br>
+            <br />
+            New Definiton Description: <br>
+            <textarea type="text" name="DefinitionDescription" value="" class="mydefinitiondescription" cols="40" rows="5"></textarea>
+        </div>
+        <br/>
+        <div>
+            <button type="submit" value="Submit">Submit</button>
+        </div>
+    </form>    
+    </body>
+</html>
+
