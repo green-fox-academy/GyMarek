@@ -39,7 +39,7 @@ namespace Frontend.Controllers
             {
                 return Json(new { error = "Please provide a title!" });
             }
-            return Json(new { welcome_message = $"Oh, hi there {name}, my dear {title}!"});
+            return Json(new { welcome_message = $"Oh, hi there {name}, my dear {title}!" });
         }
 
         [HttpGet]
@@ -50,8 +50,47 @@ namespace Frontend.Controllers
             if (String.IsNullOrEmpty(appendable))
             {
                 return NotFound();
-            }            
+            }
             return Json(new { appended = $"{appendable}a" });
+        }
+
+        [HttpPost]
+        [Route("dountil/{what}")]
+        [Route("dountil")]
+        public IActionResult DoUntil(string what, [FromBody] DoU dou)
+        {          
+            int resultNumber = 0;
+
+            if (dou == null)
+            {
+                return Json(new { error = "Please provide a number!" });
+            }
+            if (string.IsNullOrEmpty(what))
+            {
+                return NotFound();
+            }
+            if (what == "sum")
+            {
+                for (int i = 0; i <= dou.Until; i++)
+                {
+                    resultNumber += i;
+                }
+            }
+            if (what == "factor")
+            {
+                resultNumber = 1;
+                for (int i = 1; i <= dou.Until; i++)
+                {
+                    resultNumber *= i;
+                }
+            }
+
+            return Json(new { result = $"{resultNumber}" });
+        }
+
+        public class DoU
+        {
+            public int? Until { get; set; }
         }
     }
 }
