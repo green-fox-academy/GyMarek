@@ -19,20 +19,21 @@ namespace AlpagaDictionary
             services.AddSingleton<Models.Definition>();
             services.AddSingleton<Models.DefinitionList>();
             services.AddSingleton<Models.User>();
+            services.AddSingleton<Models.Users>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole();
-
-            app.UseMvc();
-            app.UseStaticFiles();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseMvc();
+            app.UseStaticFiles();
+
+            
 
             app.Run(async (context) =>
             {

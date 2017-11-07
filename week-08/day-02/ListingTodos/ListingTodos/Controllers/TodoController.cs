@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ListingTodos.Repositories;
+using ListingTodos.Models;
 
 namespace ListingTodos.Controllers
 {
@@ -18,22 +19,48 @@ namespace ListingTodos.Controllers
         }
 
         [Route("/list")]
+        [HttpGet]
         public IActionResult List()
         {
             return View(TodoRepository.GetList());
         }
 
         [Route("/add")]
+        [HttpGet]
         public IActionResult Add()
         {
-            TodoRepository.AddTodo();
+            return View();
+        }
+
+        [Route("/add")]
+        [HttpPost]
+        public IActionResult Add(string title)
+        {
+            TodoRepository.AddTodo(title);
             return RedirectToAction("List");
         }
 
-        [Route("/clear")]
-        public IActionResult Clear()
+        [Route("/{id}/delete")]
+        [HttpPost]
+        public IActionResult Delete(int id)
         {
-            TodoRepository.ClearDatabase();
+            TodoRepository.Delete(id);
+            return RedirectToAction("List");
+        }
+
+        [Route("/{id}/update")]
+        [HttpPost]
+        public IActionResult Update(int id)
+        {
+            var todo = TodoRepository.Updating(id);
+            return View(todo);
+        }
+
+        [Route("/{id}/edit")]
+        [HttpPost]
+        public IActionResult Edit(Todos todo)
+        {
+            TodoRepository.UpdateTodo(todo);
             return RedirectToAction("List");
         }
     }

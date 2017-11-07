@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
+    <link rel="stylesheet" type="text/css" href="~/ListStyleSheet.css" ) />
 </head>
 <body>
     <h1>Todos for today:</h1>
@@ -22,8 +23,25 @@
                 <td>@todo.Title</td>
                 <td>@todo.IsUrgent</td>
                 <td>@todo.IsDone</td>
+                <td>
+                    <form action="/@todo.Id/delete" method="post">
+                        <input type="hidden" name="Id" value="@todo.Id" />
+                        <button id="table" class="number" type="submit">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/@todo.Id/update" method="post">
+                        <input type="hidden" name="Id" value="@todo.Id" />
+                        <button id="table" class="number" type="submit">Edit</button>
+                    </form>
+                </td>
             </tr>
         }
     </table>
+    <br />
+    <br />
+    <form action="/add" method="get">        
+        <button id="table" class="number" type="submit">Add New</button>
+    </form>
 </body>
 </html>

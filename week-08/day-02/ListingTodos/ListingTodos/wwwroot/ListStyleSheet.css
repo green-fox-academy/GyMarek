@@ -1,0 +1,16 @@
+﻿body {
+    font-family: consolas;
+    background-color: black;
+}
+
+h1 {
+    color: white;
+}
+
+table {    
+    table-layout: fixed;
+    color: lightgrey;
+    border: 10px solid red;
+    box-sizing: border-box;
+    border-collapse: collapse;
+}

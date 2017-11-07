@@ -15,25 +15,27 @@ namespace AlpagaDictionary.Controllers
         Definition definition;
         DefinitionList definitionList;
         User user;
+        Users users;
 
-        public HomeController(Definition definition, DefinitionList definitionList, User user)
+        public HomeController(Definition definition, DefinitionList definitionList, User user, Users users)
         {
             this.definition = definition;
             this.definitionList = definitionList;
             this.user = user;
+            this.users = users;
         }
 
         [HttpPost]
-        public IActionResult LoginHandler(IFormCollection formCollection)
+        public IActionResult LoginHandler(User inputUser)
         {
-            if (user.Users.ContainsKey(formCollection["Loginname"]))
+            if (users.UsersList.ContainsKey(user.LoginName))
             {
-                return LocalRedirect("/user/" + formCollection["Loginname"]);
+                return LocalRedirect("/user/" + inputUser);
             }
             else
             {
-                return Redirect("Login/IndexLogin");
-            }            
+                return View("Alpaga");
+            }
         }
 
         [HttpGet]

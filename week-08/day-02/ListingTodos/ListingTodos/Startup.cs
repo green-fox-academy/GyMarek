@@ -27,13 +27,15 @@ namespace ListingTodos
         {
             loggerFactory.AddConsole();
 
+            app.UseStaticFiles();
+
+            app.UseMvc();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseMvc();
-
+            
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Hello World!");

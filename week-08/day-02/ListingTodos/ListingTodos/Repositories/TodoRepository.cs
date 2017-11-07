@@ -21,28 +21,46 @@ namespace ListingTodos.Repositories
             TodoContext = todoContext;
         }
 
-        public void AddTodo()
+        public List<Todos> NotDone()
+        {
+            var notDone = from notReady in TodoContext.Todo
+                          where notReady.IsDone == false
+                          select notReady;
+
+            return notDone.ToList();
+        }
+
+        public void AddTodo(string title)
         {
             var todo = new Todos()
             {
-                Title = "do lunch",
-                IsDone = true,
-                IsUrgent = true
+                Title = title,
+                IsDone = false,
+                IsUrgent = false,
             };
 
             TodoContext.Todo.Add(todo);
             TodoContext.SaveChanges();
         }
 
-        public Todos GetLastTodo()
+        public void Delete(int id)
         {
-            return TodoContext.Todo.Last();
+            var deleteItem = from deleteOne in TodoContext.Todo
+                             where deleteOne.Id == id
+                             select deleteOne;
+
+            TodoContext.Todo.Remove(deleteItem.FirstOrDefault());
+            TodoContext.SaveChanges();
         }
 
-        public void ClearDatabase()
+        public Todos Updating(int id)
         {
-            TodoContext.Todo.RemoveRange(TodoContext.Todo.Where(t => t.Id>0));
-            
+            return TodoContext.Todo.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void UpdateTodo(Todos todo)
+        {
+            TodoContext.Todo.Update(todo);
             TodoContext.SaveChanges();
         }
     }
