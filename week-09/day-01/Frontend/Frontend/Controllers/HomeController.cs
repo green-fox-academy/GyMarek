@@ -10,10 +10,21 @@ namespace Frontend.Controllers
 {
     public class HomeController : Controller
     {
-        [Route("")]
+        [Route("/")]
         public IActionResult Index()
         {
             return File("index.html", "text/html");
+        }
+
+        [HttpGet]
+        [Route("doubling")]
+        public IActionResult Doubling(int? input)
+        {
+            if (input == null)
+            {
+                return Json(new { error = "Please provide an input!" });
+            }
+            return Json(new { received = input, result = input * 2 });
         }
     }
 }
