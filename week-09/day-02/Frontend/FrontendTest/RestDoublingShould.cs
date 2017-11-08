@@ -1,12 +1,11 @@
-﻿using Frontend;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Frintend.FrontendTest
+namespace Frontend.FrontendTest
 {
     public class RestDoublingShould
     {
