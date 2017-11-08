@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Frontend.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -31,7 +33,26 @@ namespace Frontend.FrontendTest
         }
 
         [Fact]
-        public async Task InputNullOrEmptySum()
+        public async Task WithoutWhat()
+        {
+            var usedUntil = new DoU
+            {
+                Until = 5,
+            };
+            var convertedUsedUntil = JsonConvert.SerializeObject(usedUntil);
+            var data = new StringContent(convertedUsedUntil.ToString(),
+                         encoding: Encoding.UTF8,
+                         mediaType: "application/json");
+
+            var response = await Client.PostAsync("dountil", data);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task InputNullSum()
         {
             var data = new StringContent(content: "",
                          encoding: Encoding.UTF8,
@@ -47,7 +68,7 @@ namespace Frontend.FrontendTest
         }
 
         [Fact]
-        public async Task InputNullOrEmptyFactor()
+        public async Task InputNullFactor()
         {
             var data = new StringContent(content: "",
                          encoding: Encoding.UTF8,
@@ -62,6 +83,46 @@ namespace Frontend.FrontendTest
             Assert.Equal(error, responseString);
         }
 
-        
+        [Fact]
+        public async Task ReturnResult15WhenSum5()
+        {
+            var usedUntil = new DoU
+            {
+                Until = 5,
+            };
+            var convertedUsedUntil = JsonConvert.SerializeObject(usedUntil);
+            var data = new StringContent(convertedUsedUntil.ToString(),
+                         encoding: Encoding.UTF8,
+                         mediaType: "application/json");
+
+            var response = await Client.PostAsync("dountil/sum", data);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+
+            string result = "{\"result\":\"15\"}";
+
+            Assert.Equal(result, responseString);
+        }
+
+        [Fact]
+        public async Task ReturnResult120WhenFactor5()
+        {
+            var usedUntil = new DoU
+            {
+                Until = 5,
+            };
+            var convertedUsedUntil = JsonConvert.SerializeObject(usedUntil);
+            var data = new StringContent(convertedUsedUntil.ToString(),
+                         encoding: Encoding.UTF8,
+                         mediaType: "application/json");
+
+            var response = await Client.PostAsync("dountil/factor", data);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+
+            string result = "{\"result\":\"120\"}";
+
+            Assert.Equal(result, responseString);
+        }
     }
 }
