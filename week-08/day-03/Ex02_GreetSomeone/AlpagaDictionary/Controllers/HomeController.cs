@@ -6,67 +6,85 @@ using Microsoft.AspNetCore.Mvc;
 using AlpagaDictionary.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using AlpagaDictionary.Repositories;
+using AlpagaDictionary.Services;
 
 namespace AlpagaDictionary.Controllers
 {
     [Route("/user")]
     public class HomeController : Controller
     {
-        Definition definition;
-        DefinitionList definitionList;
+        Definition definition;        
         User user;
-        Users users;
+        DefinitionRepository definitionRepository;
+        private UserService userService;
 
-        public HomeController(Definition definition, DefinitionList definitionList, User user, Users users)
+        public HomeController(Definition definition, User user, UserService userService, DefinitionRepository definitionRepository)
         {
-            this.definition = definition;
-            this.definitionList = definitionList;
+            this.definition = definition;            
             this.user = user;
-            this.users = users;
+            this.userService = userService;
+            this.definitionRepository = definitionRepository; 
+            //this.users = users;
         }
 
         [HttpPost]
-        public IActionResult LoginHandler(User inputUser)
+        public IActionResult LoginHandler(User userFromForm)
         {
-            if (users.UsersList.ContainsKey(user.LoginName))
+            if (userService.AuthenticateUser(userFromForm.LoginName, userFromForm.Password))
             {
-                return LocalRedirect("/user/" + inputUser);
+                return LocalRedirect("/user");
             }
-            else
-            {
-                return View("Alpaga");
-            }
+
+            return LocalRedirect("/");
         }
 
         [HttpGet]
-        [Route("/user/{userName}")]
+        [Route("/user")]
         public IActionResult Alpaga(string userName)
-        {
-            return View(userName);
+        {                    
+
+            return View(definitionRepository.GetList());
         }
 
         [HttpGet]
-        [Route("/user/{userName}/upload")]
+        [Route("/user/upload")]
         public IActionResult IndexWithForm()
         {
             return View();
         }
 
-
+        [Route("/user/upload")]
         [HttpPost]
-        [Route("submit")]
-        public IActionResult Alpaga(string definitionName, string definitionDescription)
+        public IActionResult Add(string definitionName, string definitionDescription)
         {
-            definition.DefinitionName = definitionName;
-            definition.DefinitonDescription = definitionDescription;
+            definitionRepository.AddDefinition(definitionName,definitionDescription);
             return RedirectToAction("Alpaga");
         }
 
-        //[HttpGet]
-        //[Route("/user/{userName}")]
-        //public IActionResult Alpaga()
-        //{
-        //    return View(definition);
-        //}
+        [Route("/user/{id}/delete")]
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            definitionRepository.DeleteDefinition(id);
+            return RedirectToAction("Alpaga");
+        }
+
+        [Route("user/{id}/update")]
+        [HttpPost]
+        public IActionResult Update(int id)
+        {
+            var definition = definitionRepository.Updating(id);
+            return View(definition);
+        }
+
+        [Route("user/{id}/edit")]
+        [HttpPost]
+        public IActionResult Edit(Definition definition)
+        {
+            definitionRepository.UpdateDefinition(definition);
+            return RedirectToAction("Alpaga");
+        }
+
     }
 }

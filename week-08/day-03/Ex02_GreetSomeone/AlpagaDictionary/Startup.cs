@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using AlpagaDictionary.Repositories;
+using AlpagaDictionary.Entities;
+using Microsoft.EntityFrameworkCore;
+using AlpagaDictionary.Services;
 
 namespace AlpagaDictionary
 {
@@ -15,25 +19,28 @@ namespace AlpagaDictionary
        
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = alpagadictionary; Integrated Security = True; Connect Timeout = 30;";
+            
             services.AddMvc();
+            services.AddScoped<DefinitionRepository>();
+            services.AddScoped<UserRepository>();
+            services.AddScoped<UserService>();
+            services.AddDbContext<Context>(options => options.UseSqlServer(connectionString));
             services.AddSingleton<Models.Definition>();
-            services.AddSingleton<Models.DefinitionList>();
             services.AddSingleton<Models.User>();
-            services.AddSingleton<Models.Users>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole();
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+
             app.UseMvc();
             app.UseStaticFiles();
 
-            
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }                     
 
             app.Run(async (context) =>
             {

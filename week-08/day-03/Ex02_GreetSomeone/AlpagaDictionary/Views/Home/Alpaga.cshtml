@@ -1,4 +1,4 @@
-﻿@model AlpagaDictionary.Models.User
+﻿@model List<AlpagaDictionary.Models.Definition>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,18 +8,44 @@
 <body>
     <h1>Alpaga-Dictionary</h1><br>
     <br />
-    <form method="get" action="/user/{userName}/upload">
+    <form method="get" action="/user/upload">
         <button type="submit" value="AddNew">Add New Definition</button>
-        </form>
-        <br />
-        <h2>Green Fox Academy</h2>
-        <p>
-            Green Fox Academy in downtown Budapest is the school
-            where you can become a Junior Software Developer or
-            Junior Hardware Programmer in four months with the help of professional mentors.
-            Moreover, once you have successfully graduated, we help you to find your first job.
-        </p>
-        <br />
-
+    </form>
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Definition Name</td>
+                <td>Definition Discription</td>
+            </tr>
+        </thead>
+        @foreach (var defi in @Model)
+        {
+            <tr>
+                <td>@defi.Id</td>
+                <td>@defi.DefinitionName</td>
+                <td>@defi.DefinitonDescription</td>
+                <td>
+                    <form action="user/@defi.Id/delete" method="post">
+                        <input type="hidden" name="Id" value="@defi.Id" />
+                        <button id="table" class="number" type="submit">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="user/@defi.Id/update" method="post">
+                        <input type="hidden" name="Id" value="@defi.Id" />
+                        <button id="table" class="number" type="submit">Edit</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+    <br />
+    <br />
+    @*<form action="/add" method="get">
+        <button id="table" class="number" type="submit">Add New</button>
+    </form>*@
+    <br />
 </body>
 </html>

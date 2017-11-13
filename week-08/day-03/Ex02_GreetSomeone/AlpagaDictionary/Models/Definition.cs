@@ -8,29 +8,12 @@ using System.IO;
 
 namespace AlpagaDictionary.Models
 {
-    [Serializable()]
-    public class Definition : ISerializable
-    {
+    public class Definition
+    {  
+        public int Id { get; set; }
         public string DefinitionName { get; set; }
         public string DefinitonDescription { get; set; }
-
-        public Definition()
-        {
-
-        }
-
-        public void GetObjectData(SerializationInfo info,
-        StreamingContext context)
-        {
-            info.AddValue("Name", DefinitionName);
-            info.AddValue("Description", DefinitonDescription);
-        }
-
-        public Definition(SerializationInfo info,
-            StreamingContext context)
-        {
-            DefinitionName = (string)info.GetValue("Name", typeof(string));
-            DefinitonDescription = (string)info.GetValue("Description", typeof(string));
-        }
+        public int CreatedBy { get; set; }
+        public int ModifiedBy { get; set; }
     }
 }
