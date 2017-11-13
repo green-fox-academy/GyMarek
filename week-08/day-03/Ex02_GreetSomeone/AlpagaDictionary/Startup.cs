@@ -40,7 +40,7 @@ namespace AlpagaDictionary
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }                     
+            }
 
             app.Run(async (context) =>
             {

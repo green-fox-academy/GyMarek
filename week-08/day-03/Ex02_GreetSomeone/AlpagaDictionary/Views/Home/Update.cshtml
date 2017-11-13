@@ -6,16 +6,20 @@
 </head>
 <body>
     <h1>Edit definition</h1>
-
-        @using (Html.BeginForm("edit", "definition"))
-        {
-            <input type="hidden" name="id" value="@Model.Id" />
+    <form method="post" action="/user/@Model.Id/edit">
+        <div>
+            <input type="hidden" name="Id" value="@Model.Id" />
             @Html.LabelFor(x => x.DefinitionName) @Html.TextBoxFor(x => x.DefinitionName)<br />
-            @Html.LabelFor(x => x.DefinitonDescription) @Html.TextBoxFor(x => x.DefinitonDescription)<br />
-
+            @Html.LabelFor(x => x.DefinitonDescription) @Html.TextAreaFor(x => x.DefinitonDescription)<br />
+        </div>
+        <br />
+        <div>
             <button type="submit" value="Submit">Submit</button>
-        }
-        <h2><a href="">Cancel</a></h2>
-  
+        </div>
+        <br />
+        <div>
+            <h2><a href="/user">Cancel</a></h2>
+        </div>
+    </form>
 </body>
 </html>

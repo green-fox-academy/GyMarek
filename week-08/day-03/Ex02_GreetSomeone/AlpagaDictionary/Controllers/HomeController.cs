@@ -70,15 +70,14 @@ namespace AlpagaDictionary.Controllers
             return RedirectToAction("Alpaga");
         }
 
-        [Route("user/{id}/update")]
+        [Route("/user/{id}/update")]
         [HttpPost]
         public IActionResult Update(int id)
         {
-            var definition = definitionRepository.Updating(id);
-            return View(definition);
+            return View(definitionRepository.Updating(id));
         }
 
-        [Route("user/{id}/edit")]
+        [Route("/user/{id}/edit")]
         [HttpPost]
         public IActionResult Edit(Definition definition)
         {
