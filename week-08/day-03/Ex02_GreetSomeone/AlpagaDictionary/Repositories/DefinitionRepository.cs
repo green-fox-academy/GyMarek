@@ -49,9 +49,9 @@ namespace AlpagaDictionary.Repositories
             return DefinitionsContext.DefinitionData.FirstOrDefault(x => x.Id == id);
         }
 
-        public void UpdateDefinition(Definition definition)
+        public void UpdateDefinition(Definition definition, UserAndDefinition user)
         {
-            DefinitionsContext.DefinitionData.Update(definition);
+            DefinitionsContext.DefinitionData.Update(definition);         
             DefinitionsContext.SaveChanges();
         }
 
