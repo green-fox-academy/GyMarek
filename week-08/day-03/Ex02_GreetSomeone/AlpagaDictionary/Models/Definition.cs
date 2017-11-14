@@ -15,5 +15,8 @@ namespace AlpagaDictionary.Models
         public string DefinitonDescription { get; set; }
         public int CreatedBy { get; set; }
         public int ModifiedBy { get; set; }
+        public int Score { get; set; }
+        public DateTime CreateDate { get; set; } = DateTime.Now;
+        public DateTime ModifiedDate { get; set; } = DateTime.Now;
     }
 }

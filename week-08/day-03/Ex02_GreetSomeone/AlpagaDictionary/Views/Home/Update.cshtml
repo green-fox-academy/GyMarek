@@ -10,7 +10,11 @@
         <div>
             <input type="hidden" name="Id" value="@Model.Id" />
             @Html.LabelFor(x => x.DefinitionName) @Html.TextBoxFor(x => x.DefinitionName)<br />
-            @Html.LabelFor(x => x.DefinitonDescription) @Html.TextAreaFor(x => x.DefinitonDescription)<br />
+            @Html.LabelFor(x => x.DefinitonDescription) @Html.TextAreaFor(x => x.DefinitonDescription)<br />  
+            @*<input type="hidden" name="CreateDate" value="@Model.CreateDate" />
+            <input type="hidden" name="CreatedBy" value="@Model.CreatedBy" />
+            <input type="hidden" name="Score" value="@Model.Score" />*@
+            
         </div>
         <br />
         <div>

@@ -8,9 +8,10 @@ using AlpagaDictionary.Entities;
 namespace AlpagaDictionary.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class DefinitionsContextModelSnapshot : ModelSnapshot
+    [Migration("20171114120000_ScoreAndDate")]
+    partial class ScoreAndDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.3")
@@ -21,17 +22,15 @@ namespace AlpagaDictionary.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreateDate");
-
                     b.Property<int>("CreatedBy");
+
+                    b.Property<DateTime>("Date");
 
                     b.Property<string>("DefinitionName");
 
                     b.Property<string>("DefinitonDescription");
 
                     b.Property<int>("ModifiedBy");
-
-                    b.Property<DateTime>("ModifiedDate");
 
                     b.Property<int>("Score");
 

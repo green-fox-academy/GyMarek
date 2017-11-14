@@ -19,6 +19,11 @@ namespace AlpagaDictionary.Services
         public bool AuthenticateUser(string name, string password)
         {
             return UserRepository.CheckUserExist(name,password);
-        }        
+        }
+
+        public int GetUserId(string name)
+        {
+            return UserRepository.GetUserId(name);
+        }
     }
 }

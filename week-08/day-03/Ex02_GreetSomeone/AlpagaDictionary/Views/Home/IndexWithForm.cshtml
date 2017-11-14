@@ -1,4 +1,4 @@
-﻿@model AlpagaDictionary.Models.Definition
+﻿@model AlpagaDictionary.Models.UserAndDefinition
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,6 +16,7 @@
             <textarea type="text" name="DefinitionDescription" value="" class="mydefinitiondescription" cols="40" rows="5"></textarea>
         </div>
         <br/>
+        <input type="hidden" name="UserId" value="@Model.user.UserId" />
         <div>
             <button type="submit" value="Submit">Submit</button>
         </div>

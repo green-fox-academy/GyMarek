@@ -18,14 +18,13 @@ namespace AlpagaDictionary.Controllers
         User user;
         DefinitionRepository definitionRepository;
         private UserService userService;
-
+        
         public HomeController(Definition definition, User user, UserService userService, DefinitionRepository definitionRepository)
         {
             this.definition = definition;            
             this.user = user;
             this.userService = userService;
             this.definitionRepository = definitionRepository; 
-            //this.users = users;
         }
 
         [HttpPost]
@@ -33,6 +32,7 @@ namespace AlpagaDictionary.Controllers
         {
             if (userService.AuthenticateUser(userFromForm.LoginName, userFromForm.Password))
             {
+                user.UserId = userService.GetUserId(userFromForm.LoginName);
                 return LocalRedirect("/user");
             }
 
@@ -51,14 +51,14 @@ namespace AlpagaDictionary.Controllers
         [Route("/user/upload")]
         public IActionResult IndexWithForm()
         {
-            return View();
+            return View(new UserAndDefinition(user));
         }
 
         [Route("/user/upload")]
         [HttpPost]
-        public IActionResult Add(string definitionName, string definitionDescription)
+        public IActionResult Add(string definitionName, string definitionDescription, int userId)
         {
-            definitionRepository.AddDefinition(definitionName,definitionDescription);
+            definitionRepository.AddDefinition(definitionName,definitionDescription,userId);
             return RedirectToAction("Alpaga");
         }
 
@@ -82,6 +82,20 @@ namespace AlpagaDictionary.Controllers
         public IActionResult Edit(Definition definition)
         {
             definitionRepository.UpdateDefinition(definition);
+            return RedirectToAction("Alpaga");
+        }
+
+        [Route("/vote/up/{id}")]
+        public IActionResult UpVote(int id)
+        {
+            definitionRepository.VoteDefinition("up", id);
+            return RedirectToAction("Alpaga");
+        }
+
+        [Route("/vote/down/{id}")]
+        public IActionResult DownVote(int id)
+        {
+            definitionRepository.VoteDefinition("down", id);
             return RedirectToAction("Alpaga");
         }
 

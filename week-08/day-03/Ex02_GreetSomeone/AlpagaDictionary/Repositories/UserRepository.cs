@@ -30,6 +30,15 @@ namespace AlpagaDictionary.Repositories
                 return false;
             }
             return (password.Equals(user.Password));           
-        }        
+        }
+
+        public int GetUserId(string name)
+        {
+            var id = (from userId in UserContext.UserData
+                     where userId.LoginName == name
+                     select userId).FirstOrDefault();
+
+            return Int32.Parse(id.UserId.ToString());            
+        }
     }
 }

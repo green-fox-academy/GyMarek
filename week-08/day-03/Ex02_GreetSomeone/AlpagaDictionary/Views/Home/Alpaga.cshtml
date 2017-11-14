@@ -15,17 +15,32 @@
     <table>
         <thead>
             <tr>
-                <td>Id</td>
                 <td>Definition Name</td>
                 <td>Definition Discription</td>
+                <td>Created</td>
+                <td>Created By</td>
+                <td>Last Modified</td>
+                <td>Modified By</td>
+                <td>Score</td>
+                <td>Vote</td>
+                <td>Delete</td>
+                <td>Edit</td>
             </tr>
         </thead>
         @foreach (var defi in @Model)
         {
             <tr>
-                <td>@defi.Id</td>
                 <td>@defi.DefinitionName</td>
                 <td>@defi.DefinitonDescription</td>
+                <td>@defi.CreateDate</td>
+                <td>@defi.CreatedBy</td>
+                <td>@defi.ModifiedDate</td>
+                <td>@defi.ModifiedBy</td>
+                <td>@defi.Score</td>
+                <td>
+                    <a href="/vote/up/@defi.Id">+</a>
+                    <a href="/vote/down/@defi.Id">-</a>
+                </td>
                 <td>
                     <form action="user/@defi.Id/delete" method="post">
                         <input type="hidden" name="Id" value="@defi.Id" />
@@ -42,10 +57,6 @@
         }
     </table>
     <br />
-    <br />
-    @*<form action="/add" method="get">
-        <button id="table" class="number" type="submit">Add New</button>
-    </form>*@
-    <br />
+    <br />  
 </body>
 </html>
