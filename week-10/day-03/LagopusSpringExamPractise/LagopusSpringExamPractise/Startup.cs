@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using LagopusSpringExamPractise.Entities;
+using LagopusSpringExamPractise.Repositories;
 
 namespace LagopusSpringExamPractise
 {
@@ -14,7 +17,12 @@ namespace LagopusSpringExamPractise
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionstring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=qAndA;Integrated Security=True;Connect Timeout=30;";
+
             services.AddMvc();
+            services.AddDbContext<QAContext>(options => options.UseSqlServer(connectionstring));
+            services.AddScoped<QARepository>();
+            services.AddSingleton<Models.QandA>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
