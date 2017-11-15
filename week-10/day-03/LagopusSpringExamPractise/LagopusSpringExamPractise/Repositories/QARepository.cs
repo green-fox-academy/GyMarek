@@ -20,5 +20,14 @@ namespace LagopusSpringExamPractise.Repositories
         {
             return QAContext.QA.ToList();
         }
+
+        public List<QandA> GetRandomList()
+        {
+            var randomRecord = (from qaId in QAContext.QA.AsEnumerable()
+                                orderby Guid.NewGuid()
+                                select qaId).Take(5);
+
+            return randomRecord.ToList();
+        }
     }
 }
