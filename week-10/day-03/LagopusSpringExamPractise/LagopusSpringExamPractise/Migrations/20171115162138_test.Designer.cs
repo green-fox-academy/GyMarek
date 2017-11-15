@@ -8,9 +8,10 @@ using LagopusSpringExamPractise.Entities;
 namespace LagopusSpringExamPractise.Migrations
 {
     [DbContext(typeof(QAContext))]
-    partial class QAContextModelSnapshot : ModelSnapshot
+    [Migration("20171115162138_test")]
+    partial class test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.4")

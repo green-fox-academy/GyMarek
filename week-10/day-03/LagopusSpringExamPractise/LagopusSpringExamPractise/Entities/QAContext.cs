@@ -14,6 +14,7 @@ namespace LagopusSpringExamPractise.Entities
 
         }
 
-        public DbSet<QandA> QA { get; set; } 
+        public DbSet<QandA> QA { get; set; }
+        public DbSet<QandA> QATemp { get; set; }
     }
 }

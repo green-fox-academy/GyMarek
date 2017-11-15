@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LagopusSpringExamPractise.Models;
 using LagopusSpringExamPractise.Repositories;
+using Newtonsoft.Json;
 
 namespace LagopusSpringExamPractise.Controllers
 {
@@ -20,10 +21,25 @@ namespace LagopusSpringExamPractise.Controllers
         }
 
         [HttpGet]
-        [Route("/questions")]
-        public IActionResult Index()
+        [Route("question")]
+        public IActionResult Question()
         {
-            return View(qARepository.GetRandomList());
+            var quizList = qARepository.GetRandomList();
+            var selectedQuestions = (from quiz in quizList
+                                     orderby quiz.QandAId
+                                     select new { quiz.QandAId, quiz.Question }).ToList();
+            return Json(selectedQuestions);
         }
+
+        //[HttpPost]
+        //[Route("answer")]
+        //public IActionResult Answer(string what, QandA qandA)
+        //{
+        //    //var quizList = qARepository.GetRandomList();
+        //    //var selectedQuestions = (from quiz in quizList
+        //    //                         orderby quiz.QandAId
+        //    //                         select new { quiz.QandAId, quiz.Question }).ToList();
+        //    //return Json(selectedQuestions);
+        //}
     }
 }

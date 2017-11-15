@@ -8,9 +8,10 @@ using LagopusSpringExamPractise.Entities;
 namespace LagopusSpringExamPractise.Migrations
 {
     [DbContext(typeof(QAContext))]
-    partial class QAContextModelSnapshot : ModelSnapshot
+    [Migration("20171115160153_qanda4")]
+    partial class qanda4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.4")
@@ -27,7 +28,21 @@ namespace LagopusSpringExamPractise.Migrations
 
                     b.HasKey("QandAId");
 
-                    b.ToTable("QandA");
+                    b.ToTable("QA");
+                });
+
+            modelBuilder.Entity("LagopusSpringExamPractise.Models.QandAtemp", b =>
+                {
+                    b.Property<int>("TempId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("TempAnswer");
+
+                    b.Property<string>("TempQuestion");
+
+                    b.HasKey("TempId");
+
+                    b.ToTable("QATemp");
                 });
         }
     }

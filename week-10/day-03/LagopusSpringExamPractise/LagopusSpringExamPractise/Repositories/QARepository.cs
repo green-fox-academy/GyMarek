@@ -29,5 +29,17 @@ namespace LagopusSpringExamPractise.Repositories
 
             return randomRecord.ToList();
         }
+
+        //public void DeleteTempList()
+        //{
+        //    QAContext.QATemp.RemoveRange(QAContext.QATemp);
+        //    QAContext.SaveChanges();
+        //}
+
+        //public void AddRandomToTemplist()
+        //{
+        //    var templist = GetRandomList();
+        //    QAContext.QATemp.Update(templist);
+        //}
     }
 }
