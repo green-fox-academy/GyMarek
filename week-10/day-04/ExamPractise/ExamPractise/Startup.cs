@@ -7,22 +7,22 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using ExamPractise.Entities;
 using Microsoft.EntityFrameworkCore;
-using LagopusSpringExamPractise.Entities;
-using LagopusSpringExamPractise.Repositories;
+using ExamPractise.Repositories;
 
-namespace LagopusSpringExamPractise
+namespace ExamPractise
 {
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionstring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=qAndA;Integrated Security=True;Connect Timeout=30;";
+            var connectionstring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=parctiseQuiz;Integrated Security=True;Connect Timeout=30;";
 
             services.AddMvc();
-            services.AddDbContext<QAContext>(options => options.UseSqlServer(connectionstring));
-            services.AddScoped<QARepository>();
-            services.AddSingleton<Models.QandA>();
+            services.AddDbContext<QuizContext>(options => options.UseSqlServer(connectionstring));
+            services.AddScoped<QuizRepository>();
+            services.AddSingleton<Models.RandomQuiz>();
             services.AddSingleton<Models.Quiz>();
         }
 

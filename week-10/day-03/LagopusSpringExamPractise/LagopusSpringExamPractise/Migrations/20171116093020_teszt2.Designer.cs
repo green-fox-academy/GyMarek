@@ -8,9 +8,10 @@ using LagopusSpringExamPractise.Entities;
 namespace LagopusSpringExamPractise.Migrations
 {
     [DbContext(typeof(QAContext))]
-    partial class QAContextModelSnapshot : ModelSnapshot
+    [Migration("20171116093020_teszt2")]
+    partial class teszt2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.4")
@@ -30,16 +31,18 @@ namespace LagopusSpringExamPractise.Migrations
                     b.ToTable("QA");
                 });
 
-            modelBuilder.Entity("LagopusSpringExamPractise.Models.Quiz", b =>
+            modelBuilder.Entity("LagopusSpringExamPractise.Models.QandATemp", b =>
                 {
-                    b.Property<int>("QuizId")
+                    b.Property<int>("QandAId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("QandAId");
+                    b.Property<string>("Answer");
 
-                    b.HasKey("QuizId");
+                    b.Property<string>("Question");
 
-                    b.ToTable("QAQuiz");
+                    b.HasKey("QandAId");
+
+                    b.ToTable("QATemp");
                 });
         }
     }
