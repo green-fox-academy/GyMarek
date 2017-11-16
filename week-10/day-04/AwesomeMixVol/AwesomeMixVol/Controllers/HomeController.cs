@@ -20,9 +20,18 @@ namespace AwesomeMixVol.Controllers
         }
 
         [Route("addsong")]
+        [HttpPost]
         public IActionResult AddSong([FromBody] Song song)
         {
             songService.AddSong(song);
+            return Ok();
+        }
+
+        [Route("deletesong/{SongId}")]
+        [HttpGet]
+        public IActionResult DeleteSong(int SongId)
+        {
+            songService.DeleteSong(SongId);
             return Ok();
         }
     }

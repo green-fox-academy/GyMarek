@@ -18,7 +18,18 @@ namespace AwesomeMixVol.Repositories
 
         public void AddSong(Song song)
         {
-            SongContext.AddSong(song);
+            SongContext.Songs.Add(song);
+            SongContext.SaveChanges();
+        }
+
+        public void DeleteSong(int SongId)
+        {
+            var deleteItem = from deleteOne in SongContext.Songs
+                             where deleteOne.SongId == SongId
+                             select deleteOne;
+
+            SongContext.Songs.Remove(deleteItem.FirstOrDefault());
+            SongContext.SaveChanges();
         }
     }
 } 

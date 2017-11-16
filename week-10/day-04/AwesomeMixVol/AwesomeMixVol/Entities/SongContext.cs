@@ -9,17 +9,11 @@ namespace AwesomeMixVol.Entities
 {
     public class SongContext : DbContext
     {
-        public SongContext (DbContextOptions<SongContext> options) : base(options)
+        public DbSet<Song> Songs { get; set; }
+
+        public SongContext(DbContextOptions<SongContext> options) : base(options)
         {
 
-        }
-
-        private DbSet<Song> Songs { get; set; }
-
-        public void AddSong(Song song)
-        {
-            Songs.Add(song);
-            SaveChanges();
         }
     }
 }
